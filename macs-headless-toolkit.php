@@ -12,7 +12,7 @@
  * Plugin URI:        https://github.com/MacphersonDesigns/macs-headless-toolkit
  * Primary Branch:    main
  * Description:       A modular toolkit for managing headless WordPress installations.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Alex Macpherson
  * Author URI:        https://macphersondesigns.com/
  * License:           GPL-2.0+
