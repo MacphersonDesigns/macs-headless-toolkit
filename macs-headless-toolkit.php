@@ -29,10 +29,22 @@ if ( ! defined( 'WPINC' ) ) {
 require_once 'version.php';
 
 // Include Custom Post Types, Taxonomies, Meta Boxes
-require_once plugin_dir_path(__FILE__) . 'includes/post-types/clients.php';
-require_once plugin_dir_path(__FILE__) . 'includes/taxonomies/industries.php';
-require_once plugin_dir_path(__FILE__) . 'includes/taxonomies/skills.php';
-require_once plugin_dir_path(__FILE__) . 'includes/meta-boxes/client-details.php';
+// require_once plugin_dir_path(__FILE__) . 'includes/post-types/clients.php';
+// require_once plugin_dir_path(__FILE__) . 'includes/taxonomies/industries.php';
+// require_once plugin_dir_path(__FILE__) . 'includes/taxonomies/skills.php';
+// require_once plugin_dir_path(__FILE__) . 'includes/meta-boxes/client-details.php';
+
+
+function macdes_require_all_files($directory) {
+    foreach (glob(trailingslashit($directory) . '*.php') as $file) {
+        require_once $file;
+    }
+}
+
+macdes_require_all_files(plugin_dir_path(__FILE__) . 'includes/post-types');
+macdes_require_all_files(plugin_dir_path(__FILE__) . 'includes/taxonomies');
+macdes_require_all_files(plugin_dir_path(__FILE__) . 'includes/meta-boxes');
+
 
 
 function check_for_plugin_update() {
@@ -96,3 +108,13 @@ add_action('init', function() {
     }
 });
 add_action('my_plugin_check_update', 'check_for_plugin_update');
+
+
+function macdes_enqueue_admin_styles($hook_suffix) {
+    // Only enqueue the style for the specific post type edit screen
+    global $typenow;
+    if ('macdes_clients' === $typenow) {
+        wp_enqueue_style('macdes_admin_styles', plugin_dir_url(__FILE__) . 'includes/admin/css/admin-styles.css');
+    }
+}
+add_action('admin_enqueue_scripts', 'macdes_enqueue_admin_styles');

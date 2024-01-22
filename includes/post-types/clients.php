@@ -39,7 +39,7 @@ if ( ! function_exists('macdes_register_clients') ) {
             'description'           => __( 'Post Type for managing clients', 'macdes' ),
 						'rewrite' => array('slug' => 'clients'),
             'labels'                => $labels,
-            'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+            'supports'              => array( 'title', 'thumbnail', 'custom-fields' ),
             'taxonomies'            => array( 'industry', ' service_type', ' location', ' status', ' project_type' ),
             'hierarchical'          => false,
             'public'                => true,

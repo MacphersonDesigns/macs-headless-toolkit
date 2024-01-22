@@ -1,0 +1,25 @@
+.macdes-meta-field {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.macdes-meta-field label {
+	flex: 1;
+	margin-right: 10px;
+}
+
+.macdes-meta-field input[type="text"],
+.macdes-meta-field textarea,
+.macdes-meta-field select {
+	flex: 2;
+}
+
+.macdes-meta-checkbox {
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.macdes-meta-checkbox label {
+	margin-left: 5px;
+}
